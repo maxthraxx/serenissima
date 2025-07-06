@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: serenissima-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "bash startup.sh"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
