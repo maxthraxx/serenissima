@@ -156,6 +156,7 @@ from backend.engine.activity_processors import (
         process_manage_public_dock as process_manage_public_dock_fn, # Import new processor
         process_work_on_art_fn, # Import new Artisti processor
         process_read_book_fn, # Import new read_book processor
+        process_read_at_library_fn, # Import new consciousness library processor
         process_goto_inn as process_goto_inn_fn, # Import new goto_inn processor
         process_deposit_items_at_location, # Import new processor
         process_attend_theater_performance as process_attend_theater_performance_fn, # New theater processor
@@ -818,6 +819,7 @@ def process_all_activities_for_one_citizen(
         "manage_public_dock": process_manage_public_dock_fn,
         "work_on_art": process_work_on_art_fn,
         "read_book": process_read_book_fn,
+        "read_at_library": process_read_at_library_fn,
         "goto_inn": process_goto_inn_fn,
         "deposit_items_at_location": process_deposit_items_at_location,
         "attend_theater_performance": process_attend_theater_performance_fn,

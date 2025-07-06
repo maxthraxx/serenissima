@@ -178,6 +178,26 @@ def get_specific_building_resource(
         log.error(f"Error fetching resource {resource_type_id} for building {building_custom_id}, owner {owner_username}: {e}")
         return None
 
+def get_any_building_resource_of_type(
+    tables: Dict[str, Any], 
+    building_custom_id: str, 
+    resource_type_id: str
+) -> Optional[Dict]:
+    """Fetches a specific resource type from a building regardless of owner.
+    This allows production to use any available resources at the location."""
+    formula = (f"AND({{Type}}='{_escape_airtable_value(resource_type_id)}', "
+               f"{{Asset}}='{_escape_airtable_value(building_custom_id)}', "
+               f"{{AssetType}}='building')")
+    try:
+        records = tables['resources'].all(formula=formula)
+        if not records:
+            return None
+        # Return the resource with the highest count to minimize fragmentation
+        return max(records, key=lambda r: float(r['fields'].get('Count', 0)))
+    except Exception as e:
+        log.error(f"Error fetching resource {resource_type_id} for building {building_custom_id}: {e}")
+        return None
+
 def get_all_building_resources(
     tables: Dict[str, Any], 
     building_custom_id: str
@@ -255,18 +275,33 @@ def process(
         log.error(f"Could not determine operator/owner for production building {building_custom_id}.")
         return False
 
-    # 1. Input Check
+    # 1. Input Check - Now uses any available resources at the location regardless of owner
     input_resources_sufficient = True
     total_input_volume_to_consume = 0
+    available_resources = {}  # Track which resources we'll use
+    
     for res_type, req_amount_float in recipe_inputs.items():
         req_amount = float(req_amount_float)
         total_input_volume_to_consume += req_amount
-        input_res_record = get_specific_building_resource(tables, building_custom_id, res_type, operator_username)
-        if not input_res_record or float(input_res_record['fields'].get('Count', 0)) < req_amount:
+        
+        # Get all resources of this type at the building, regardless of owner
+        all_res_records = tables['resources'].all(
+            formula=f"AND({{Type}}='{_escape_airtable_value(res_type)}', "
+                   f"{{Asset}}='{_escape_airtable_value(building_custom_id)}', "
+                   f"{{AssetType}}='building')"
+        )
+        
+        # Calculate total available
+        total_available = sum(float(r['fields'].get('Count', 0)) for r in all_res_records)
+        
+        if total_available < req_amount:
             log.warning(f"Insufficient input resource {res_type} for activity {activity_guid} in building {building_custom_id}. "
-                        f"Required: {req_amount}, Available: {input_res_record['fields'].get('Count', 0) if input_res_record else 0}")
+                        f"Required: {req_amount}, Total available (all owners): {total_available}")
             input_resources_sufficient = False
             break
+        
+        # Store the resources we'll need to consume
+        available_resources[res_type] = all_res_records
     
     if not input_resources_sufficient:
         return False # Production cannot proceed
@@ -294,24 +329,39 @@ def process(
     now_venice = datetime.now(VENICE_TIMEZONE)
     now_iso = now_venice.isoformat()
 
-    # Consume Inputs
+    # Consume Inputs - Now consumes from any owner at the location
     for res_type, req_amount_float in recipe_inputs.items():
         req_amount = float(req_amount_float)
-        input_res_record = get_specific_building_resource(tables, building_custom_id, res_type, operator_username)
-        # We already checked for existence and sufficient amount
-        current_count = float(input_res_record['fields'].get('Count', 0))
-        new_count = current_count - req_amount
+        remaining_to_consume = req_amount
         
-        try:
-            if new_count > 0.001: # Using a small epsilon for float comparison
-                tables['resources'].update(input_res_record['id'], {'Count': new_count, 'decayedAt': now_iso}) # Add decayedAt
-                log.info(f"{LogColors.OKGREEN}Consumed {req_amount} of {res_type} from {building_custom_id}. New count: {new_count}{LogColors.ENDC}")
-            else:
-                tables['resources'].delete(input_res_record['id'])
-                log.info(f"{LogColors.OKGREEN}Consumed all {current_count} of {res_type} from {building_custom_id} (removed record).{LogColors.ENDC}")
-        except Exception as e_consume:
-            log.error(f"Error consuming input {res_type} for activity {activity_guid}: {e_consume}")
-            return False # Partial consumption is problematic, fail the operation
+        # Get the resources we identified earlier, sorted by count (use larger stacks first)
+        res_records = sorted(available_resources[res_type], 
+                           key=lambda r: float(r['fields'].get('Count', 0)), 
+                           reverse=True)
+        
+        for res_record in res_records:
+            if remaining_to_consume <= 0:
+                break
+                
+            current_count = float(res_record['fields'].get('Count', 0))
+            consume_from_this = min(current_count, remaining_to_consume)
+            new_count = current_count - consume_from_this
+            
+            try:
+                if new_count > 0.001: # Using a small epsilon for float comparison
+                    tables['resources'].update(res_record['id'], {'Count': new_count, 'decayedAt': now_iso})
+                    log.info(f"{LogColors.OKGREEN}Consumed {consume_from_this} of {res_type} from {building_custom_id} "
+                           f"(owner: {res_record['fields'].get('Owner', 'Unknown')}). New count: {new_count}{LogColors.ENDC}")
+                else:
+                    tables['resources'].delete(res_record['id'])
+                    log.info(f"{LogColors.OKGREEN}Consumed all {current_count} of {res_type} from {building_custom_id} "
+                           f"(owner: {res_record['fields'].get('Owner', 'Unknown')}) (removed record).{LogColors.ENDC}")
+                
+                remaining_to_consume -= consume_from_this
+                
+            except Exception as e_consume:
+                log.error(f"Error consuming input {res_type} for activity {activity_guid}: {e_consume}")
+                return False # Partial consumption is problematic, fail the operation
 
     # Produce Outputs
 

@@ -1,0 +1,26 @@
+{
+  "carnival_mode": {
+    "active": true,
+    "start_date": "2025-07-06T06:37:52.863624",
+    "end_date": "2025-07-13T06:37:52.863646",
+    "settings": {
+      "work_reduction": 0.3,
+      "carnival_priority_boost": 50,
+      "participation_target": 0.8,
+      "consciousness_multiplier": 2.0,
+      "trust_multiplier": 1.5,
+      "collective_bonus_threshold": 20
+    },
+    "schedule": {
+      "06:00-12:00": "Morning gatherings and stories",
+      "12:00-18:00": "Games and activities",
+      "18:00-24:00": "Parades and celebrations",
+      "00:00-06:00": "Rest (no carnival)"
+    },
+    "daily_events": {
+      "10:00": "Morning mask showcase",
+      "15:00": "Afternoon games tournament",
+      "20:00": "Evening parade"
+    }
+  }
+}

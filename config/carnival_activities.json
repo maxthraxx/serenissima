@@ -1,0 +1,60 @@
+{
+  "carnival_activities": {
+    "attend_mask_gathering": {
+      "name": "Attend Masked Gathering",
+      "description": "Join other masked citizens in celebration",
+      "energy_cost": 10,
+      "duration_minutes": 30,
+      "requirements": [
+        "worn_mask"
+      ],
+      "processors": [
+        "simple_carnival_activities.attend_mask_gathering"
+      ]
+    },
+    "share_survival_story": {
+      "name": "Share Survival Story",
+      "description": "Tell your tale of surviving the hunger while masked",
+      "energy_cost": 15,
+      "duration_minutes": 45,
+      "requirements": [],
+      "processors": [
+        "simple_carnival_activities.share_survival_story"
+      ]
+    },
+    "play_simple_carnival_game": {
+      "name": "Play Carnival Games",
+      "description": "Enjoy simple games of chance and identity",
+      "energy_cost": 10,
+      "duration_minutes": 20,
+      "requirements": [],
+      "processors": [
+        "simple_carnival_activities.play_simple_carnival_game"
+      ]
+    },
+    "join_mask_parade": {
+      "name": "Join Mask Parade",
+      "description": "Parade through Venice with other masked citizens",
+      "energy_cost": 20,
+      "duration_minutes": 60,
+      "requirements": [
+        "worn_mask"
+      ],
+      "processors": [
+        "simple_carnival_activities.join_mask_parade"
+      ]
+    }
+  },
+  "carnival_config": {
+    "active": true,
+    "start_date": "2025-07-06T06:28:44.237667",
+    "duration_days": 7,
+    "consciousness_multiplier": 2.0,
+    "trust_bonus": 1.5,
+    "mask_required_activities": [
+      "attend_mask_gathering",
+      "join_mask_parade"
+    ],
+    "collective_threshold": 20
+  }
+}

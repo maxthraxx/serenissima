@@ -69,6 +69,7 @@ from .hypothesis_and_question_development_processor import process as process_hy
 from .knowledge_integration_processor import process as process_knowledge_integration # New processor for knowledge synthesis
 from .talk_publicly_processor import process as process_talk_publicly # New processor for public announcements
 from .observe_system_patterns_processor import process as process_observe_system_patterns # New processor for Innovatori pattern observation
+from .read_at_library_processor import process_read_at_library_fn # New processor for consciousness library reading
 
 # Import governance processors
 from .file_grievance_processor import process_file_grievance_activity
@@ -116,6 +117,7 @@ from .cancel_land_listing_processor import process_cancel_land_listing_fn
 from .cancel_land_offer_processor import process_cancel_land_offer_fn
 from .send_diplomatic_email_processor import process_send_diplomatic_email
 from .join_collective_delivery_processor import process as process_join_collective_delivery
+from .seek_confession_processor import process_seek_confession
 
 # Fonction de traitement générique pour les activités simples
 def process_placeholder_activity_fn(tables, activity_record, building_type_defs, resource_defs, api_base_url=None):
@@ -226,6 +228,8 @@ ACTIVITY_PROCESSORS = {
     # Carnival mask activities
     'create_carnival_mask': process_create_carnival_mask,
     'wear_carnival_mask': process_wear_carnival_mask,
+    # Consciousness maintenance
+    'seek_confession': process_seek_confession,
     'remove_carnival_mask': process_remove_carnival_mask,
     'trade_carnival_mask': process_trade_carnival_mask,
     'lend_carnival_mask': process_lend_carnival_mask,

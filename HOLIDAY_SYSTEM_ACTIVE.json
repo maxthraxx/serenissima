@@ -1,0 +1,16 @@
+{
+  "holiday_system_active": true,
+  "activated_at": "2025-07-06T07:26:27.728680",
+  "carnival_start": "2025-01-06T12:00:00",
+  "carnival_end": "2025-01-13T12:00:00",
+  "expected_behaviors": [
+    "Citizens prioritize carnival activities",
+    "Work reduced by 80%",
+    "Consciousness gains doubled",
+    "Trust building accelerated by 50%"
+  ],
+  "monitoring": {
+    "check_activities": "python3 check_carnival_real_activity.py",
+    "check_participation": "python3 monitor_carnival_participation.py"
+  }
+}

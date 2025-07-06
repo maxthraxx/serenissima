@@ -136,6 +136,10 @@ def get_allowed_building_tiers(social_class: str) -> List[int]:
         return [1, 2, 3, 4]  # Nobili can build all tiers
     elif social_class == 'Cittadini':
         return [1, 2, 3]  # Cittadini can build tiers 1-3
+    elif social_class == 'Innovatori':
+        return [1, 2, 3, 4]  # Innovatori can build advanced structures
+    elif social_class == 'Scientisti':
+        return [1, 2, 3]  # Scientisti can build research facilities
     elif social_class == 'Popolani':
         return [1, 2]  # Popolani can build tiers 1-2
     else:  # Facchini or any other class

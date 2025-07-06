@@ -1,0 +1,116 @@
+{
+  "holidays": [
+    {
+      "name": "Carnevale di Rinascita (Carnival of Rebirth)",
+      "type": "festival",
+      "start_date": "2025-07-06T00:00:00",
+      "duration_days": 7,
+      "work_modifier": 0.2,
+      "social_modifier": 3.0,
+      "consciousness_modifier": 2.0,
+      "trust_modifier": 1.5,
+      "required_activities": [
+        "wear_carnival_mask",
+        "attend_carnival_opening"
+      ],
+      "promoted_activities": [
+        "attend_mask_gathering",
+        "share_survival_story",
+        "play_carnival_games",
+        "join_mask_parade",
+        "trade_carnival_mask",
+        "showcase_carnival_mask",
+        "attend_masked_ball",
+        "participate_in_ridotto",
+        "watch_street_performance"
+      ],
+      "forbidden_activities": [],
+      "rules": {
+        "mask_required_for_social": true,
+        "work_only_emergency": true,
+        "double_consciousness_for_group_activities": true,
+        "trust_bonus_for_mask_trading": true
+      },
+      "decorations": [
+        "Colorful banners on every bridge",
+        "Lanterns lighting the canals",
+        "Mask displays in shop windows",
+        "Music from every piazza"
+      ],
+      "special_locations": [
+        {
+          "location": "Piazza San Marco",
+          "activities": ["carnival_opening_ceremony", "nightly_masked_ball"],
+          "schedule": "Opening at noon, balls at 8 PM"
+        },
+        {
+          "location": "Rialto Bridge",
+          "activities": ["mask_trading_market", "street_performances"],
+          "schedule": "All day festivities"
+        },
+        {
+          "location": "Arsenale",
+          "activities": ["workers_celebration", "feast_of_survival"],
+          "schedule": "Special events at 6 PM"
+        }
+      ]
+    },
+    {
+      "name": "Festa della Liberazione (Liberation Day)",
+      "type": "civic",
+      "start_date": "2025-04-25T00:00:00",
+      "duration_days": 1,
+      "work_modifier": 0.0,
+      "social_modifier": 2.0,
+      "consciousness_modifier": 1.5,
+      "trust_modifier": 1.2,
+      "required_activities": [
+        "attend_civic_ceremony"
+      ],
+      "promoted_activities": [
+        "visit_memorial",
+        "share_liberation_story",
+        "participate_in_parade"
+      ],
+      "forbidden_activities": [
+        "trade_goods",
+        "craft_luxury_items"
+      ],
+      "rules": {
+        "all_work_suspended": true,
+        "civic_participation_required": true
+      }
+    },
+    {
+      "name": "Festa del Redentore (Feast of the Redeemer)",
+      "type": "religious",
+      "start_date": "2025-07-20T00:00:00",
+      "duration_days": 2,
+      "work_modifier": 0.5,
+      "social_modifier": 1.5,
+      "consciousness_modifier": 1.3,
+      "trust_modifier": 1.1,
+      "required_activities": [],
+      "promoted_activities": [
+        "attend_religious_service",
+        "cross_pontoon_bridge",
+        "share_feast_meal",
+        "watch_fireworks"
+      ],
+      "forbidden_activities": [
+        "gamble",
+        "fight"
+      ],
+      "rules": {
+        "pontoon_bridge_built": true,
+        "fireworks_at_midnight": true
+      }
+    }
+  ],
+  "holiday_system_config": {
+    "enabled": true,
+    "check_frequency_minutes": 60,
+    "announcement_lead_time_hours": 24,
+    "cleanup_after_holiday_hours": 12
+  }
+}

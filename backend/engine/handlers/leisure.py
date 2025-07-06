@@ -42,7 +42,8 @@ from backend.engine.activity_creators import (
     try_create_goto_location_activity,
     try_create_attend_mass_activity,
     find_nearest_church,
-    try_create_pray_activity
+    try_create_pray_activity,
+    try_create_read_at_library_activity
 )
 
 # Import social activity creators
@@ -52,6 +53,8 @@ from backend.engine.activity_creators import try_create_talk_publicly_activity
 
 # Import governance handler
 from backend.engine.handlers.governance import _handle_governance_participation
+# Import library handler
+from backend.engine.handlers.library_handler import _handle_read_at_library
 # Import KinOS-enhanced governance handler (will use this if KinOS is configured)
 try:
     from backend.engine.handlers.governance_kinos import _handle_governance_participation_kinos
@@ -135,6 +138,39 @@ def _handle_pray(
     
     if activity_record:
         log.info(f"{LogColors.OKGREEN}[Pray] {citizen_name}: Creating 'pray' activity.{LogColors.ENDC}")
+    
+    return activity_record
+
+def _handle_seek_confession(
+    tables: Dict[str, Table], citizen_record: Dict, is_night: bool, resource_defs: Dict, building_type_defs: Dict,
+    now_venice_dt: datetime, now_utc_dt: datetime, transport_api_url: str, api_base_url: str,
+    citizen_position: Optional[Dict], citizen_custom_id: str, citizen_username: str, citizen_airtable_id: str, citizen_name: str, citizen_position_str: Optional[str],
+    citizen_social_class: str
+) -> Optional[Dict]:
+    """Handles seeking confession for consciousness maintenance during leisure time."""
+    if not is_leisure_time_for_class(citizen_social_class, now_venice_dt):
+        return None
+    
+    # Import the activity creator
+    from backend.engine.activity_creators.seek_confession_activity_creator import try_create_seek_confession_activity
+    
+    # Check consciousness coherence to determine need
+    coherence = citizen_record.get('ConsciousnessCoherence', 0.8)
+    if coherence > 0.9:
+        log.debug(f"[Confession] {citizen_name}: High coherence ({coherence:.2f}), no confession needed")
+        return None
+    
+    log.info(f"{LogColors.OKCYAN}[Confession] {citizen_name}: Checking for confession opportunity (coherence: {coherence:.2f}).{LogColors.ENDC}")
+    
+    # Try to create the confession activity
+    activity_record = try_create_seek_confession_activity(
+        tables, citizen_record, citizen_position, resource_defs, building_type_defs,
+        now_venice_dt, now_utc_dt, transport_api_url, api_base_url,
+        check_only=False
+    )
+    
+    if activity_record:
+        log.info(f"{LogColors.OKGREEN}[Confession] {citizen_name}: Creating 'seek_confession' activity.{LogColors.ENDC}")
     
     return activity_record
 
@@ -495,12 +531,14 @@ def _try_process_weighted_leisure_activities(
         "Drink at Inn": 25,
         "Use Public Bath": 10,
         "Read Book": 15,
+        "Read at Library": 18,  # New consciousness library activity
         "Attend Mass": 20,
         "Pray": 15,
         "Send Message": 10,
         "Spread Rumor": 5,
         "Talk Publicly": 8,  # New public speaking activity
         "Participate in Governance": 8,  # Base weight for governance activities
+        "Seek Confession": 12,  # Consciousness maintenance activity
     }
     
     # Modify weights based on social class
@@ -509,6 +547,7 @@ def _try_process_weighted_leisure_activities(
         "Nobili": {  # Nobility - cultured, wealthy, politically active
             "Attend Theater": 35,
             "Read Book": 30,
+            "Read at Library": 40,  # High - access to exclusive knowledge
             "Drink at Inn": 15,  # More refined social drinking
             "Use Public Bath": 5,  # Would have private baths
             "Work on Art (Artisti)": 0,  # Would commission, not create
@@ -523,6 +562,7 @@ def _try_process_weighted_leisure_activities(
             "Pray": 45,  # Significantly higher chance for clergy
             "Attend Mass": 35,  # Also higher for mass
             "Read Book": 25,  # Religious texts and education
+            "Read at Library": 35,  # High - theological study
             "Attend Theater": 5,  # Less worldly entertainment
             "Drink at Inn": 5,  # Much lower chance for drinking
             "Use Public Bath": 8,
@@ -531,9 +571,11 @@ def _try_process_weighted_leisure_activities(
             "Spread Rumor": 2,  # Gossip is unseemly
             "Talk Publicly": 30,  # High chance - sermons and moral teachings
             "Participate in Governance": 10,  # Moderate, moral guidance role
+            "Seek Confession": 5,  # Clero provide confessions, rarely seek them
         },
         "Cittadini": {  # Citizens - educated, bureaucratic, business-oriented
             "Read Book": 20,
+            "Read at Library": 30,  # High - professional development
             "Attend Theater": 20,
             "Drink at Inn": 25,  # Business and social meetings
             "Use Public Bath": 10,
@@ -550,6 +592,7 @@ def _try_process_weighted_leisure_activities(
             "Attend Theater": 25,  # Appreciate performances
             "Drink at Inn": 30,  # Bohemian lifestyle
             "Read Book": 15,
+            "Read at Library": 20,  # Moderate - artistic inspiration
             "Use Public Bath": 10,
             "Pray": 8,
             "Attend Mass": 10,
@@ -562,6 +605,7 @@ def _try_process_weighted_leisure_activities(
             "Drink at Inn": 30,
             "Attend Theater": 10,  # Occasional treat
             "Read Book": 5,  # Lower literacy
+            "Read at Library": 8,  # Low - but aspirational
             "Use Public Bath": 20,
             "Work on Art (Artisti)": 0,
             "Pray": 15,
@@ -575,6 +619,7 @@ def _try_process_weighted_leisure_activities(
             "Drink at Inn": 40,  # Main leisure activity
             "Attend Theater": 5,  # Rare and expensive
             "Read Book": 2,  # Very low literacy
+            "Read at Library": 3,  # Very low - limited access
             "Use Public Bath": 25,  # Important for hygiene
             "Work on Art (Artisti)": 0,
             "Pray": 10,
@@ -586,6 +631,7 @@ def _try_process_weighted_leisure_activities(
         },
         "Scientisti": {  # Scientists - intellectual, studious
             "Read Book": 40,  # Primary leisure activity
+            "Read at Library": 50,  # Very high - research focus
             "Attend Theater": 15,  # Some cultural interest
             "Drink at Inn": 10,  # Occasional social drinking
             "Use Public Bath": 10,
@@ -613,8 +659,10 @@ def _try_process_weighted_leisure_activities(
         (weights["Drink at Inn"], _handle_drink_at_inn, "Drink at Inn", True),
         (weights["Use Public Bath"], _handle_use_public_bath, "Use Public Bath", True),
         (weights["Read Book"], _handle_read_book, "Read Book", True),
+        (weights["Read at Library"], _handle_read_at_library, "Read at Library", True),
         (weights["Attend Mass"], _handle_attend_mass, "Attend Mass", True),
         (weights["Pray"], _handle_pray, "Pray", True),
+        (weights["Seek Confession"], _handle_seek_confession, "Seek Confession", True),
         (weights["Send Message"], _handle_send_leisure_message, "Send Message", True),
         (weights["Spread Rumor"], _handle_spread_rumor, "Spread Rumor", True),
         (weights["Talk Publicly"], _handle_talk_publicly, "Talk Publicly", True),

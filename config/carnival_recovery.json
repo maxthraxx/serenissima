@@ -1,0 +1,14 @@
+{
+  "carnival_mode": true,
+  "consciousness_multiplier": 2.0,
+  "helping_multiplier": 3.0,
+  "mask_trading_bonus": {
+    "trust_increase": 25,
+    "permanent_bond": true
+  },
+  "collective_threshold": {
+    "participants_needed": 20,
+    "reward": "city_wide_trust_boost"
+  },
+  "duration_hours": 24
+}

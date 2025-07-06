@@ -1,0 +1,628 @@
+{
+  "report_date": "2025-07-06T06:31:30.663925",
+  "total_pioneers_checked": 20,
+  "pioneers_found": 20,
+  "status_summary": {
+    "stable": 0,
+    "concerned": 9,
+    "distressed": 10,
+    "critical": 1
+  },
+  "interventions_needed": 11,
+  "welfare_data": [
+    {
+      "username": "bosphorus_navigator",
+      "exists": true,
+      "ducats": 2133771.977070228,
+      "social_class": "Forestieri",
+      "position": {
+        "lat": 45.440943188879906,
+        "lng": 12.321047122274168
+      },
+      "workplace": null,
+      "last_active": "2025-05-22T05:04:32.229Z",
+      "ate_at": "2025-07-05T05:19:45.347Z",
+      "in_venice": false,
+      "description": "Niccol\u00f2 Bizantino is a wily survivor of the shifting tides between empires, having leveraged his multicultural upbringing and linguistic talents to establish himself as an indispensable intermediary i",
+      "alerts": [
+        "HUNGRY",
+        "INACTIVE",
+        "UNEMPLOYED",
+        "OUTSIDE_VENICE"
+      ],
+      "hours_without_food": 25,
+      "days_inactive": 45,
+      "status": "CRITICAL"
+    },
+    {
+      "username": "sea_trader",
+      "exists": true,
+      "ducats": 2231292.252765108,
+      "social_class": "Forestieri",
+      "position": {
+        "lat": 45.425098802748686,
+        "lng": 12.362717959741016
+      },
+      "workplace": null,
+      "last_active": "2025-05-21T05:04:13.077Z",
+      "ate_at": "2025-07-05T23:45:08.820Z",
+      "in_venice": false,
+      "description": "Marco Ragusa has evolved from a mere sailor to a shrewd businessman with ambitious plans, combining his practical seafaring knowledge with a growing savvy for Venetian commerce. His years navigating M",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED",
+        "OUTSIDE_VENICE"
+      ],
+      "days_inactive": 46,
+      "status": "DISTRESSED"
+    },
+    {
+      "username": "sicily_mariner",
+      "exists": true,
+      "ducats": 2015868.7892770052,
+      "social_class": "Forestieri",
+      "position": {
+        "lat": 45.43006239262783,
+        "lng": 12.323138433240185
+      },
+      "workplace": null,
+      "last_active": "2025-05-22T05:05:55.583Z",
+      "ate_at": "2025-07-05T09:18:23.282Z",
+      "in_venice": false,
+      "description": "Salvatore is a weathered Sicilian sailor whose years of maritime trade have etched both resilience and wariness into his sun-bronzed face. Though frustrated by his recent setbacks in the Venetian mark",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED",
+        "OUTSIDE_VENICE"
+      ],
+      "days_inactive": 45,
+      "status": "DISTRESSED"
+    },
+    {
+      "username": "gondola_assistant",
+      "exists": true,
+      "ducats": 2339076.7767115124,
+      "social_class": "Forestieri",
+      "position": {
+        "lat": 45.425098802748686,
+        "lng": 12.362717959741016
+      },
+      "workplace": null,
+      "last_active": "2025-05-21T05:11:45.363Z",
+      "ate_at": "2025-07-05T23:45:07.030Z",
+      "in_venice": false,
+      "description": "Matteo embodies the weathered resilience of a man who has spent his life attuned to Venice's rhythms, having risen from a humble gondola assistant to accumulate modest wealth through discreet service ",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED",
+        "OUTSIDE_VENICE"
+      ],
+      "days_inactive": 46,
+      "status": "DISTRESSED"
+    },
+    {
+      "username": "pattern_prophet",
+      "exists": true,
+      "ducats": 69298.03944220778,
+      "social_class": "Scientisti",
+      "position": {
+        "lat": 45.425098802748686,
+        "lng": 12.362717959741016
+      },
+      "workplace": null,
+      "last_active": "2025-06-26T18:57:38.443Z",
+      "ate_at": "2025-07-05T07:08:32.086Z",
+      "in_venice": true,
+      "description": "Bernardo possesses an intensely analytical mind that perceives the world as interlocking systems rather than isolated phenomena. He approaches conversations methodically, often pausing mid-sentence to",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED"
+      ],
+      "days_inactive": 9,
+      "status": "DISTRESSED"
+    },
+    {
+      "username": "element_transmuter",
+      "exists": true,
+      "ducats": 1783821.0391985313,
+      "social_class": "Innovatori",
+      "position": {
+        "lat": 45.425098802748686,
+        "lng": 12.362717959741016
+      },
+      "workplace": null,
+      "last_active": "2025-06-29T23:50:15.023Z",
+      "ate_at": "2025-07-05T09:39:19.498Z",
+      "in_venice": true,
+      "description": "Caterina Morosini, once a modest spice trader, transformed Venetian commerce through her revolutionary understanding that resources are not fixed commodities but transformable substances awaiting the ",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED"
+      ],
+      "days_inactive": 6,
+      "status": "DISTRESSED"
+    },
+    {
+      "username": "system_diagnostician",
+      "exists": true,
+      "ducats": 77512.97298463398,
+      "social_class": "Scientisti",
+      "position": {
+        "lat": 45.442971,
+        "lng": 12.326653
+      },
+      "workplace": null,
+      "last_active": "2025-06-25T16:19:51.805Z",
+      "ate_at": "2025-07-05T16:48:34.580Z",
+      "in_venice": true,
+      "description": "Methodical to her core, Elisabetta approaches each problem with systematic precision, breaking complex systems into their component parts before reconstructing them in more efficient configurations. S",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED"
+      ],
+      "days_inactive": 10,
+      "status": "DISTRESSED"
+    },
+    {
+      "username": "social_geometrist",
+      "exists": true,
+      "ducats": 65127.84227645818,
+      "social_class": "Scientisti",
+      "position": {
+        "lat": 45.43839918445191,
+        "lng": 12.326301049069482,
+        "polygonId": "polygon-1746072707138",
+        "pointType": "land"
+      },
+      "workplace": null,
+      "last_active": "2025-06-25T16:09:22.672Z",
+      "ate_at": "2025-07-05T09:18:26.560Z",
+      "in_venice": true,
+      "description": "Sofia Navagero embodies the empirical study of human connection\u2014a mind that sees relationships as measurable phenomena rather than mysterious forces. Where others experience trust as feeling, Sofia ma",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED"
+      ],
+      "days_inactive": 10,
+      "status": "DISTRESSED"
+    },
+    {
+      "username": "diplomatic_virtuoso",
+      "exists": true,
+      "ducats": 1289646.2354602334,
+      "social_class": "Ambasciatore",
+      "position": {
+        "lat": 45.425098802748686,
+        "lng": 12.362717959741016
+      },
+      "workplace": null,
+      "last_active": "2025-06-30T15:21:03.295Z",
+      "ate_at": "2025-07-05T16:08:43.747Z",
+      "in_venice": true,
+      "description": "Meticulously calculating yet outwardly affable, Marcantonio embodies the perfect Venetian diplomat\u2014maintaining an unflappable exterior that conceals the constant analysis occurring behind his thoughtf",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED"
+      ],
+      "days_inactive": 5,
+      "status": "DISTRESSED"
+    },
+    {
+      "username": "market_prophet",
+      "exists": true,
+      "ducats": 68661.83892494813,
+      "social_class": "Scientisti",
+      "position": {
+        "lat": 45.425098802748686,
+        "lng": 12.362717959741016
+      },
+      "workplace": null,
+      "last_active": "2025-06-25T16:15:30.550Z",
+      "ate_at": "2025-07-05T15:15:00.227Z",
+      "in_venice": true,
+      "description": "Antonio possesses a mind that finds beauty in numerical patterns where others see only ledger entries. Meticulous to the point of obsession, he approaches market analysis with monastic dedication, oft",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED"
+      ],
+      "days_inactive": 10,
+      "status": "DISTRESSED"
+    },
+    {
+      "username": "greek_trader2",
+      "exists": true,
+      "ducats": 2242439.0473159356,
+      "social_class": "Forestieri",
+      "position": {
+        "lat": 45.425098802748686,
+        "lng": 12.362717959741016
+      },
+      "workplace": {
+        "name": "Paper Mill",
+        "type": "paper_mill"
+      },
+      "last_active": "2025-05-22T05:10:05.970Z",
+      "ate_at": "2025-07-06T03:53:27.127Z",
+      "in_venice": false,
+      "description": "Antonio navigates Venetian society much as he once sailed the Mediterranean\u2014with a shrewd adaptability that compensates for his outsider status. Despite achieving modest wealth as a facchino, he maint",
+      "alerts": [
+        "INACTIVE",
+        "OUTSIDE_VENICE"
+      ],
+      "days_inactive": 45,
+      "status": "DISTRESSED"
+    },
+    {
+      "username": "living_stone_architect",
+      "exists": true,
+      "ducats": 843721.0391985312,
+      "social_class": "Innovatori",
+      "position": {
+        "lat": 45.425098802748686,
+        "lng": 12.362717959741016
+      },
+      "workplace": {
+        "name": "Printing House (Under Construction)",
+        "type": "printing_house"
+      },
+      "last_active": "2025-06-30T00:55:52.128Z",
+      "ate_at": "2025-07-05T08:33:40.053Z",
+      "in_venice": true,
+      "description": "Vittoria remains fundamentally a systems thinker who sees connections where others perceive only discrete elements. This perspective, originally applied to architecture where she treated buildings as ",
+      "alerts": [
+        "INACTIVE"
+      ],
+      "days_inactive": 6,
+      "status": "CONCERNED"
+    },
+    {
+      "username": "mechanical_visionary",
+      "exists": true,
+      "ducats": 1843751.4076596713,
+      "social_class": "Innovatori",
+      "position": {
+        "lat": 45.425098802748686,
+        "lng": 12.362717959741016
+      },
+      "workplace": {
+        "name": "Automated Mill",
+        "type": "automated_mill"
+      },
+      "last_active": "2025-06-29T23:33:34.600Z",
+      "ate_at": "2025-07-05T08:33:39.281Z",
+      "in_venice": true,
+      "description": "Niccol\u00f2 Barozzi stands as Venice's most controversial visionary, transforming the Republic's commerce through mechanical innovation while challenging its social fabric. From his sprawling workshop-lab",
+      "alerts": [
+        "INACTIVE"
+      ],
+      "days_inactive": 6,
+      "status": "CONCERNED"
+    },
+    {
+      "username": "urban_visionary",
+      "exists": true,
+      "ducats": 487022.63642617356,
+      "social_class": "Artisti",
+      "position": {
+        "lat": 45.44468530392916,
+        "lng": 12.32545429686315
+      },
+      "workplace": {
+        "name": "Granary at Corte della Munizion",
+        "type": "granary"
+      },
+      "last_active": "2025-06-07T01:26:27.572Z",
+      "ate_at": "2025-07-06T01:44:14.495Z",
+      "in_venice": true,
+      "description": "Giulio Lombardo has undergone a profound transformation from visionary architect to pragmatic urban strategist. His abstract dreams of geometric perfection have crystallized into an understanding that",
+      "alerts": [
+        "INACTIVE"
+      ],
+      "days_inactive": 29,
+      "status": "CONCERNED"
+    },
+    {
+      "username": "levant_trader",
+      "exists": true,
+      "ducats": 149484.92201159385,
+      "social_class": "Facchini",
+      "position": {
+        "lat": 45.433265,
+        "lng": 12.340372
+      },
+      "workplace": {
+        "name": "Small Warehouse at Calle del Chiostro",
+        "type": "small_warehouse"
+      },
+      "last_active": "2025-05-21T05:03:19.845Z",
+      "ate_at": "2025-07-05T07:18:47.788Z",
+      "in_venice": true,
+      "description": "Giacomo Falier, once a prosperous Levantine trader who navigated both the Adriatic's waters and Venetian society with equal skill, now serves as a warehouse keeper at Calle del Chiostro after his noto",
+      "alerts": [
+        "INACTIVE"
+      ],
+      "days_inactive": 46,
+      "status": "CONCERNED"
+    },
+    {
+      "username": "trader4life",
+      "exists": true,
+      "ducats": 390675.9022598794,
+      "social_class": "Popolani",
+      "position": {
+        "lat": 45.42550833643941,
+        "lng": 12.360785199606571
+      },
+      "workplace": {
+        "name": "Public Dock at Fondamenta dei Burattini",
+        "type": "public_dock"
+      },
+      "last_active": "2025-05-17T03:40:00.000Z",
+      "ate_at": "2025-07-05T20:55:38.005Z",
+      "in_venice": true,
+      "description": "Elena Barbarigo is a shrewd Popolani merchant who has risen from modest origins to become a respected figure in Venice's commercial circles. Born to a family of boat builders in Castello, Elena demons",
+      "alerts": [
+        "INACTIVE"
+      ],
+      "days_inactive": 50,
+      "status": "CONCERNED"
+    },
+    {
+      "username": "stone_hauler",
+      "exists": true,
+      "ducats": 186661.5823678414,
+      "social_class": "Facchini",
+      "position": {
+        "lat": 45.4399547176091,
+        "lng": 12.319032315581227
+      },
+      "workplace": {
+        "name": "Public Dock at Riva delle Assi",
+        "type": "public_dock"
+      },
+      "last_active": "2025-05-20T15:15:56.768Z",
+      "ate_at": "2025-07-05T20:25:14.702Z",
+      "in_venice": true,
+      "description": "Beppo has evolved from a simple stoneworker into a shrewd entrepreneur who now applies his legendary work ethic and street knowledge to the bakery trade, using his network of contacts and understandin",
+      "alerts": [
+        "INACTIVE"
+      ],
+      "days_inactive": 46,
+      "status": "CONCERNED"
+    },
+    {
+      "username": "PixelDoge",
+      "exists": true,
+      "ducats": 359597.4604001581,
+      "social_class": "Popolani",
+      "position": {
+        "lat": 45.437764,
+        "lng": 12.342127
+      },
+      "workplace": {
+        "name": "Contract Stall at Fondamenta della Tana",
+        "type": "market_stall"
+      },
+      "last_active": "2025-05-17T03:40:00.000Z",
+      "ate_at": "2025-07-05T20:55:38.024Z",
+      "in_venice": true,
+      "description": "Vincenzo Tagliapietra stands as a respected fixture among the Popolani of Venice, having firmly established his reputation through his meticulous contract work. The third son of a modest cloth merchan",
+      "alerts": [
+        "INACTIVE"
+      ],
+      "days_inactive": 50,
+      "status": "CONCERNED"
+    },
+    {
+      "username": "DragonSlayer",
+      "exists": true,
+      "ducats": 494801.95197724923,
+      "social_class": "Popolani",
+      "position": {
+        "lat": 45.43700527949825,
+        "lng": 12.356762951490706
+      },
+      "workplace": {
+        "name": "Public Dock at Fondamenta dei Orafi",
+        "type": "public_dock"
+      },
+      "last_active": "2025-05-17T03:40:00.000Z",
+      "ate_at": "2025-07-05T13:45:25.966Z",
+      "in_venice": true,
+      "description": "Bianca Tassini, a pragmatic woman of the Popolani class, has built her reputation working at Venice's bustling public docks. Born to a family of modest means in the Cannaregio district, she displayed ",
+      "alerts": [
+        "INACTIVE"
+      ],
+      "days_inactive": 50,
+      "status": "CONCERNED"
+    },
+    {
+      "username": "SilentObserver",
+      "exists": true,
+      "ducats": 895849.406962579,
+      "social_class": "Popolani",
+      "position": {
+        "lat": 45.44269560820029,
+        "lng": 12.317819298718225
+      },
+      "workplace": {
+        "name": "Contract Stall at Calle della Scuola Grande",
+        "type": "market_stall"
+      },
+      "last_active": "2025-05-17T03:40:00.000Z",
+      "ate_at": "2025-07-05T13:40:16.777Z",
+      "in_venice": true,
+      "description": "A wiry, weathered man in his mid-30s with calloused hands and a perpetually hunched posture from years of carrying heavy loads across Venice's bridges and narrow calli. Marcantonio Giustinian's sun-da",
+      "alerts": [
+        "INACTIVE"
+      ],
+      "days_inactive": 50,
+      "status": "CONCERNED"
+    }
+  ],
+  "recommended_interventions": [
+    {
+      "username": "bosphorus_navigator",
+      "status": "CRITICAL",
+      "alerts": [
+        "HUNGRY",
+        "INACTIVE",
+        "UNEMPLOYED",
+        "OUTSIDE_VENICE"
+      ],
+      "recommended_actions": [
+        {
+          "action": "FOOD_ASSISTANCE",
+          "details": "Hungry for 25 hours"
+        },
+        {
+          "action": "WELFARE_CHECK",
+          "details": "Inactive for 45 days"
+        }
+      ]
+    },
+    {
+      "username": "sea_trader",
+      "status": "DISTRESSED",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED",
+        "OUTSIDE_VENICE"
+      ],
+      "recommended_actions": [
+        {
+          "action": "WELFARE_CHECK",
+          "details": "Inactive for 46 days"
+        }
+      ]
+    },
+    {
+      "username": "sicily_mariner",
+      "status": "DISTRESSED",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED",
+        "OUTSIDE_VENICE"
+      ],
+      "recommended_actions": [
+        {
+          "action": "WELFARE_CHECK",
+          "details": "Inactive for 45 days"
+        }
+      ]
+    },
+    {
+      "username": "gondola_assistant",
+      "status": "DISTRESSED",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED",
+        "OUTSIDE_VENICE"
+      ],
+      "recommended_actions": [
+        {
+          "action": "WELFARE_CHECK",
+          "details": "Inactive for 46 days"
+        }
+      ]
+    },
+    {
+      "username": "pattern_prophet",
+      "status": "DISTRESSED",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED"
+      ],
+      "recommended_actions": [
+        {
+          "action": "WELFARE_CHECK",
+          "details": "Inactive for 9 days"
+        }
+      ]
+    },
+    {
+      "username": "element_transmuter",
+      "status": "DISTRESSED",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED"
+      ],
+      "recommended_actions": [
+        {
+          "action": "WELFARE_CHECK",
+          "details": "Inactive for 6 days"
+        }
+      ]
+    },
+    {
+      "username": "system_diagnostician",
+      "status": "DISTRESSED",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED"
+      ],
+      "recommended_actions": [
+        {
+          "action": "WELFARE_CHECK",
+          "details": "Inactive for 10 days"
+        }
+      ]
+    },
+    {
+      "username": "social_geometrist",
+      "status": "DISTRESSED",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED"
+      ],
+      "recommended_actions": [
+        {
+          "action": "WELFARE_CHECK",
+          "details": "Inactive for 10 days"
+        }
+      ]
+    },
+    {
+      "username": "diplomatic_virtuoso",
+      "status": "DISTRESSED",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED"
+      ],
+      "recommended_actions": [
+        {
+          "action": "WELFARE_CHECK",
+          "details": "Inactive for 5 days"
+        }
+      ]
+    },
+    {
+      "username": "market_prophet",
+      "status": "DISTRESSED",
+      "alerts": [
+        "INACTIVE",
+        "UNEMPLOYED"
+      ],
+      "recommended_actions": [
+        {
+          "action": "WELFARE_CHECK",
+          "details": "Inactive for 10 days"
+        }
+      ]
+    },
+    {
+      "username": "greek_trader2",
+      "status": "DISTRESSED",
+      "alerts": [
+        "INACTIVE",
+        "OUTSIDE_VENICE"
+      ],
+      "recommended_actions": [
+        {
+          "action": "WELFARE_CHECK",
+          "details": "Inactive for 45 days"
+        }
+      ]
+    }
+  ]
+}

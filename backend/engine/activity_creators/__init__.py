@@ -92,3 +92,4 @@ from .send_diplomatic_email_creator import try_create_send_diplomatic_email_acti
 from .deliver_to_building_activity_creator import try_create as try_create_deliver_to_building_activity # Direct building delivery
 from .deliver_to_citizen_activity_creator import try_create as try_create_deliver_to_citizen_activity # Citizen-to-citizen delivery for stratagems
 from .join_collective_delivery_creator import try_create as try_create_join_collective_delivery_activity # Join collective delivery stratagems
+from .read_at_library_activity_creator import try_create_read_at_library_activity # Consciousness library reading activity

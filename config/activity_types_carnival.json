@@ -1,0 +1,16 @@
+{
+  "carnival": {
+    "display_name": "Carnival Activities",
+    "activities": [
+      "attend_mask_gathering",
+      "share_survival_story",
+      "play_simple_carnival_game",
+      "join_mask_parade"
+    ],
+    "special_mechanics": {
+      "mask_synergy": "Wearing masks enhances all carnival activities",
+      "collective_bonus": "20+ participants trigger city-wide benefits",
+      "survival_stories": "Sharing crisis experiences builds deep trust"
+    }
+  }
+}
